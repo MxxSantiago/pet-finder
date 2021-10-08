@@ -1,0 +1,51 @@
+@import '/src/styles/variables.scss';
+
+.post {
+    grid-area: a;
+    display: grid;
+    grid-template-columns: 45% 55%;
+    border-top: 0.1px solid $outline;
+    border-bottom: 0.1px solid $outline;
+    max-width: 570px;
+    min-height: 245px;
+    padding: 1rem;
+
+    &:hover {
+        cursor: pointer;
+        border-top: 0.1px solid rgba($black, $alpha: 0.25);
+        border-bottom: 0.1px solid rgba($black, $alpha: 0.25);
+    }
+}
+
+.postImageContainer {
+    background-size: cover;
+}
+
+.postInfo {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+
+.postInfoHeader {
+    font-weight: 500;
+}
+
+.postInfoAddress {
+    padding: 0.25rem 0 0.4rem 0;
+}
+
+.postInfoStatus {
+    color: $highlight;
+}
+
+.postInfoDescription {
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    color: $gray;
+}
+
+.postInfoFooter {
+    font-weight: 600;
+    margin-top: auto;
+}

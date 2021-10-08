@@ -1,0 +1,29 @@
+@import 'variables';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    &::selection {
+        background-color: rgba($primary, $alpha: 0.3);
+    }
+}
+
+html {
+    color: $black;
+    font-family: 'GT Walsheim Pro', 'avenir next', avenir, 'helvetica neue',
+        helvetica, arial, sans-serif;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.75px;
+    line-height: 1.34;
+    overflow-x: hidden;
+}
+
+#App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

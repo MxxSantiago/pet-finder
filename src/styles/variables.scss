@@ -1,0 +1,28 @@
+// Colors
+$primary: #9335c9;
+$black: #111;
+$white: #f9f9f9;
+$gray: #66605b;
+$outline: #e6e6eb;
+$outline-focused: #b9b9c0;
+$highlight: #ff4c56;
+$container-max-width: 1200px;
+
+// Media queries
+@mixin middleDeviceBreak {
+    @media screen and (max-width: 1100px) {
+        @content;
+    }
+}
+
+@mixin smallDeviceBreak {
+    @media screen and (max-width: 885px) {
+        @content;
+    }
+}
+
+@mixin smallPhone {
+    @media screen and (max-width: 415px) {
+        @content;
+    }
+}

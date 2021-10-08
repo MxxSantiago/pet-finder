@@ -1,0 +1,20 @@
+@import '/src/styles/variables.scss';
+
+.postsContainer {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-areas: 'a b';
+    grid-template-columns: 1fr 1fr;
+    max-width: $container-max-width;
+
+    @include middleDeviceBreak {
+        grid-template-columns: 57.5% 42.5%;
+    }
+
+    @include smallDeviceBreak() {
+        display: grid;
+        grid-template-areas: 'a' 'b';
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto;
+    }
+}

@@ -1,0 +1,28 @@
+@import '/src/styles/variables.scss';
+
+.resultsContainer {
+    display: flex;
+    width: 100%;
+    max-width: $container-max-width;
+
+    .results {
+        font-size: 1.1rem;
+        margin-left: 3rem;
+        padding: 2rem 0 0 0;
+
+        em {
+            font-style: normal;
+            font-weight: 100;
+        }
+    }
+
+    @include middleDeviceBreak {
+        justify-content: center;
+        margin-right: 55vw;
+    }
+
+    @include smallDeviceBreak {
+        justify-content: center;
+        margin-right: 0;
+    }
+}

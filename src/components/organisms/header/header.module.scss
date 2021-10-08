@@ -1,0 +1,44 @@
+@import '/src/styles/variables.scss';
+
+.header {
+    cursor: default;
+    border-bottom: 1px solid $outline;
+    display: grid;
+    grid-template-rows: 25px 75px;
+    height: 100px;
+    width: 100vw;
+
+    @include smallPhone {
+        height: 125px;
+    }
+}
+
+.headerMain {
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    width: calc(#{$container-max-width} - 200px);
+    margin-left: auto;
+    margin-right: auto;
+
+    h1 {
+        user-select: none;
+        font-size: 2.5rem;
+        color: $primary;
+        margin-right: auto;
+
+        @include smallDeviceBreak {
+            font-size: 1.75rem;
+            padding: 0.5rem;
+        }
+    }
+
+    @include middleDeviceBreak {
+        width: 80vw;
+    }
+
+    @include smallPhone {
+        margin-top: 1rem;
+        flex-direction: column;
+    }
+}

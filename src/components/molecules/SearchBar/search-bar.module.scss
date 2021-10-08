@@ -1,0 +1,25 @@
+@import '/src/styles/variables.scss';
+
+.searchBar {
+    outline: 1px solid $black;
+
+    input {
+        border: $outline;
+        font-weight: 600;
+        font-size: 1.1rem;
+        letter-spacing: 0.75px;
+        margin-left: 0.5rem;
+        padding: 0.85rem;
+        caret-color: $primary;
+
+        &:hover,
+        &:active,
+        &:focus {
+            outline: 0;
+        }
+
+        @include smallDeviceBreak {
+            font-size: 0.9rem;
+        }
+    }
+}
