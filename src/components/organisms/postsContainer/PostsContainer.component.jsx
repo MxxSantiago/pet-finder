@@ -1,10 +1,13 @@
 import React from 'react';
+import useSingleFetch from '../../../hooks/useSingleFetch';
 import Post from '../../molecules/Post/Post.component';
 import PostLive from '../../molecules/PostLive';
 
 import { postsContainer, chargingPosts } from './posts-container.module.scss';
 
 const PostsContainer = ({ posts }) => {
+    const [data, changeId, charging] = useSingleFetch();
+
     if (!posts) {
         return (
             <div className={chargingPosts}>
@@ -18,10 +21,18 @@ const PostsContainer = ({ posts }) => {
         <div className={postsContainer}>
             <div>
                 {posts.map((post, index) => (
-                    <Post key={index} data={post} />
+                    <Post
+                        onClick={(e) => changeId(e.target.id)}
+                        key={index}
+                        data={post}
+                    />
                 ))}
             </div>
-            <PostLive post={posts[0]} />
+            {data.data ? (
+                <PostLive post={data.data.animal} charging={charging} />
+            ) : (
+                <PostLive post={posts[0]} />
+            )}
         </div>
     );
 };
