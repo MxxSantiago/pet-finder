@@ -1,20 +1,28 @@
 import React from 'react';
 
-import Button from '../../atoms/button/Button.component';
-
 import styles from './post-live.module.scss';
 
-const PostLive = ({ post }) => {
-    const { age, name, gender, description, type, status, photos } = post;
+const PostLive = ({ post, charging }) => {
+    const { age, name, gender, description, type, status } = post;
     const { city, country } = post.contact.address;
     const postImage = post.photos[0] ? post.photos[0].medium : '/BannerBG.png';
+
+    if (charging) {
+        return (
+            <div className={styles.postLiveContainer}>
+                <div className={styles.postLive}>
+                    <div className={styles.chargingPost}>
+                        <h2>Charging...</h2>
+                        <img src="/charging.gif" />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 
     return (
         <div className={styles.postLiveContainer}>
             <div className={styles.postLive}>
-                <div className={styles.postLiveCloseButton}>
-                    <Button children={'x'} />
-                </div>
                 <div className={styles.postLiveImageContainer}>
                     <img
                         draggable="false"
