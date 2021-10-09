@@ -18,3 +18,19 @@
         grid-template-rows: auto auto;
     }
 }
+
+.chargingPosts {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 50vh;
+
+    h2 {
+        margin-top: 6rem;
+    }
+
+    img {
+        margin-top: 1.75rem;
+    }
+}
