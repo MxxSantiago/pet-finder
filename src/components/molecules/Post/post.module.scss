@@ -9,11 +9,10 @@
     max-width: 570px;
     min-height: 245px;
     padding: 1rem;
+    position: relative;
 
     &:hover {
         cursor: pointer;
-        border-top: 0.1px solid rgba($black, $alpha: 0.25);
-        border-bottom: 0.1px solid rgba($black, $alpha: 0.25);
     }
 }
 
@@ -48,4 +47,18 @@
 .postInfoFooter {
     font-weight: 600;
     margin-top: auto;
+}
+
+.postEvent {
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+    transition: background 0.25s;
+
+    &:hover {
+        background-color: rgba($white, $alpha: 0.25);
+    }
 }
