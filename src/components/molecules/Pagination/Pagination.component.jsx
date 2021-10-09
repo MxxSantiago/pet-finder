@@ -1,15 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 
 import Button from '../../atoms/button/Button.component';
 
 import { pagination } from './pagination.module.scss';
 
-const Pagination = ({ setPostsPage }) => {
-    const [currentPage, setCurrentPage] = useState(1);
-
-    // useEffect(() => {
-    //     window.scrollTo({ behavior: 'smooth', top: '0px' });
-    // }, [currentPage]);
+const Pagination = ({ posts, currentPage, setCurrentPage }) => {
+    useEffect(() => {
+        window.scrollTo({ behavior: 'smooth', top: '0px' });
+    }, [currentPage]);
 
     const paginationLimit = new Array(5).fill().map((_, index) => index + 1);
 
@@ -26,10 +24,11 @@ const Pagination = ({ setPostsPage }) => {
         setCurrentPage(pageNumber);
     }
 
+    if (!posts) return null;
+
     return (
         <div className={pagination}>
             <Button
-                // Change this for data page
                 disabled={currentPage === 1 ? true : false}
                 onClick={goToPreviousPage}
             >
