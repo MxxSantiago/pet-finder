@@ -1,34 +1,16 @@
-// import { Client } from '@petfinder/petfinder-js';
-
-import { useState } from 'react';
-import pets from './pets';
-
-import MainTemplate from './components/templates/MainTemplate.component';
-
-// const client = new Client({
-//     apiKey: 'Uw2nyHWo7HuNa91CA030ycgBith6Bsiy85H0ldasaefSLpAstK',
-//     secret: '44kOV61L3aNGRmZXIb4F87ZxCb3A7MzJbsGnc0aC',
-// });
+import HomeTemplate from './components/templates/HomeTemplate.component';
+import useFetch from './hooks/useFetch';
 
 function App() {
-    const [posts, setPosts] = useState(pets.animals);
-
-    // const [currentPage, setCurrentPage] = useState(1);
-    //     useEffect(() => {
-    //         client.animal
-    //             .search(page: currentPage)
-    //             .then(function (response) {
-    //                 console.log(response);
-    //                 setPosts(response.data.animals);
-    //             })
-    //             .catch(function (error) {
-    //                 consola.log(error);
-    //             });
-    //     }, []);
+    const [data, currentPage, setCurrentPage] = useFetch();
 
     return (
         <div>
-            <MainTemplate data={posts} />
+            <HomeTemplate
+                data={data}
+                currentPage={currentPage}
+                setCurrentPage={setCurrentPage}
+            />
         </div>
     );
 }
