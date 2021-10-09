@@ -2,13 +2,13 @@ import React from 'react';
 
 import styles from './post.module.scss';
 
-const Post = ({ data }) => {
+const Post = ({ data, ...props }) => {
     const { age, name, gender, description, type, status } = data;
     const { city, country } = data.contact.address;
     const postImage = data.photos[0] ? data.photos[0].medium : '/BannerBG.png';
 
     return (
-        <div className={styles.post}>
+        <div className={styles.post} {...props}>
             <div
                 style={{ backgroundImage: `url(${postImage})` }}
                 className={styles.postImageContainer}
@@ -33,6 +33,7 @@ const Post = ({ data }) => {
                 <p className={styles.postInfoFooter}>
                     {gender} - {age}
                 </p>
+                <em className={styles.postEvent} id={data.id}></em>
             </div>
         </div>
     );
