@@ -4,10 +4,10 @@ import Button from '../../atoms/button/Button.component';
 
 import styles from './post-live.module.scss';
 
-const PostLive = ({ data }) => {
-    const { age, name, gender, description, type, status, photos } = data;
-    const { city, country } = data.contact.address;
-    const postImage = data.photos[0] ? data.photos[0].medium : '/BannerBG.png';
+const PostLive = ({ post }) => {
+    const { age, name, gender, description, type, status, photos } = post;
+    const { city, country } = post.contact.address;
+    const postImage = post.photos[0] ? post.photos[0].medium : '/BannerBG.png';
 
     return (
         <div className={styles.postLiveContainer}>
