@@ -6,18 +6,22 @@
     grid-template-columns: 45% 55%;
     border-top: 0.1px solid $outline;
     border-bottom: 0.1px solid $outline;
-    max-width: 570px;
     min-height: 245px;
-    padding: 1rem;
+    padding: 1.5rem;
     position: relative;
 
     &:hover {
         cursor: pointer;
     }
+
+    @include smallDeviceBreak {
+        min-height: 350px;
+    }
 }
 
 .postImageContainer {
     background-size: cover;
+    border-radius: $radius;
 }
 
 .postInfo {
