@@ -1,0 +1,17 @@
+.chargingPost {
+    color: $primary;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: sticky;
+    top: 40px;
+
+    h2 {
+        margin-top: 3rem;
+    }
+
+    img {
+        margin-top: 2rem;
+    }
+}
