@@ -1,18 +1,22 @@
 import React from 'react';
+
 import useSingleFetch from '../../../hooks/useSingleFetch';
+import useModalRequest from '../../../hooks/useModalRequest';
+
 import Post from '../../molecules/Post/Post.component';
-import PostLive from '../../molecules/PostLive';
+import PostLiveContainer from '../postLiveContainer/PostLiveContainer.component';
 
 import { postsContainer, chargingPosts } from './posts-container.module.scss';
 
 const PostsContainer = ({ posts }) => {
+    const [open, handleOpen, handleClose] = useModalRequest();
     const [data, changeId, charging] = useSingleFetch();
 
     if (!posts) {
         return (
             <div className={chargingPosts}>
                 <h2>Charging posts...</h2>
-                <img src="/charging.gif" />
+                <img alt={'charging'} src="/charging.gif" />
             </div>
         );
     }
@@ -22,17 +26,22 @@ const PostsContainer = ({ posts }) => {
             <div>
                 {posts.map((post, index) => (
                     <Post
-                        onClick={(e) => changeId(e.target.id)}
+                        onClick={(e) => {
+                            handleOpen();
+                            changeId(e.target.id);
+                        }}
                         key={index}
                         data={post}
                     />
                 ))}
             </div>
-            {data.data ? (
-                <PostLive post={data.data.animal} charging={charging} />
-            ) : (
-                <PostLive post={posts[0]} />
-            )}
+            <PostLiveContainer
+                data={data}
+                posts={posts}
+                charging={charging}
+                open={open}
+                handleClose={handleClose}
+            />
         </div>
     );
 };
