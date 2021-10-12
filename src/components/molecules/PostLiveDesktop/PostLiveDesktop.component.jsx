@@ -9,7 +9,7 @@ const PostLiveDesktop = ({ post, charging }) => {
 
     if (charging) {
         return (
-            <div className="postLiveContainer">
+            <div className={styles.postLiveContainer}>
                 <div className={styles.postLive}>
                     <div className="chargingPost">
                         <h2>Charging...</h2>
