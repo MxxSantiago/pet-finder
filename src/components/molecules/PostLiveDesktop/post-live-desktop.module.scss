@@ -17,6 +17,8 @@
     padding: 1rem;
     position: sticky;
     top: 40px;
+    max-height: 90vh;
+    overflow-y: auto;
 }
 
 .postLiveImageContainer {
