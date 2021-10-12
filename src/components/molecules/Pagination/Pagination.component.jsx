@@ -36,8 +36,9 @@ const Pagination = ({ posts, currentPage, setCurrentPage }) => {
             </Button>
             {paginationLimit.map((item, index) => (
                 <Button
+                    disabled={currentPage === item ? true : false}
                     children={item}
-                    key={item + index}
+                    key={index}
                     onClick={changePage}
                 />
             ))}
