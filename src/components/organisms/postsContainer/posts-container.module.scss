@@ -5,7 +5,8 @@
     display: grid;
     grid-template-areas: 'a b';
     grid-template-columns: 1fr 1fr;
-    max-width: $container-max-width;
+    width: $container-max-width;
+    max-width: 100%;
 
     @include middleDeviceBreak {
         grid-template-columns: 57.5% 42.5%;
