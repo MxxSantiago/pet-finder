@@ -5,7 +5,7 @@ import Button from '../../atoms/button/Button.component';
 
 import styles from './post-live-modal.module.scss';
 
-const PostLiveModal = ({ post, isOpen, handleClose, charging }) => {
+const PostLiveModal = ({ post, isOpen, handleClose, loading }) => {
     if (!isOpen) return null;
 
     const { age, name, gender, description, type, status, url } = post;
@@ -15,7 +15,7 @@ const PostLiveModal = ({ post, isOpen, handleClose, charging }) => {
     return ReactDOM.createPortal(
         <div className={styles.postLiveModalContainer}>
             <div className={styles.postLiveModal}>
-                {charging ? (
+                {loading ? (
                     <div className={styles.postLive}>
                         <div className="chargingPost">
                             <h2>Charging...</h2>
