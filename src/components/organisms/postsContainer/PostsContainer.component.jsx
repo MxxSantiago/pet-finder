@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import useSingleFetch from '../../../hooks/useSingleFetch';
 import useModalRequest from '../../../hooks/useModalRequest';
 
 import Post from '../../molecules/Post/Post.component';
@@ -10,7 +9,7 @@ import { postsContainer, chargingPosts } from './posts-container.module.scss';
 
 const PostsContainer = ({ posts }) => {
     const [open, handleOpen, handleClose] = useModalRequest();
-    const [data, changeId, charging] = useSingleFetch();
+    const [id, setId] = useState(null);
 
     if (!posts) {
         return (
@@ -27,8 +26,8 @@ const PostsContainer = ({ posts }) => {
                 {posts.map((post, index) => (
                     <Post
                         onClick={(e) => {
+                            setId(e.target.id);
                             handleOpen();
-                            changeId(e.target.id);
                         }}
                         key={index}
                         data={post}
@@ -36,9 +35,8 @@ const PostsContainer = ({ posts }) => {
                 ))}
             </div>
             <PostLiveContainer
-                data={data}
                 posts={posts}
-                charging={charging}
+                id={id}
                 open={open}
                 handleClose={handleClose}
             />
