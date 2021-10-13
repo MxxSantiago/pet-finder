@@ -15,7 +15,7 @@ const Post = ({ data, ...props }) => {
             ></div>
             <div className={styles.postInfo}>
                 <h1 className={styles.postInfoHeader}>
-                    {name} - {type}
+                    {name.slice(0, 20)} - {type}
                 </h1>
                 <p className={styles.postInfoAddress}>
                     {city} - {country}
