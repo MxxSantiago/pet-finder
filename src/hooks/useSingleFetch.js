@@ -7,29 +7,30 @@ const client = new Client({
     secret: '44kOV61L3aNGRmZXIb4F87ZxCb3A7MzJbsGnc0aC',
 });
 
-function useSingleFetch() {
-    const [id, setId] = useState(null);
-    const [charging, setCharging] = useState(false);
-    const [data, setData] = useState([]);
+function useSingleFetch(id) {
+    const [data, setData] = useState({
+        post: [],
+        loading: false,
+    });
 
     useEffect(() => {
-        setCharging(true);
+        setData((state) => ({
+            ...state,
+            loading: true,
+        }));
 
         client.animal
             .show(id)
             .then((response) => {
-                setData(response);
-                setCharging(false);
+                setData({
+                    post: response,
+                    loading: false,
+                });
             })
             .catch((error) => console.log(error));
     }, [id]);
 
-    const changeId = (request) => {
-        if (request === id) return;
-        setId(request);
-    };
-
-    return [data, changeId, charging];
+    return data;
 }
 
 export default useSingleFetch;
