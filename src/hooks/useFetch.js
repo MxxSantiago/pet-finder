@@ -13,7 +13,7 @@ function useFetch() {
 
     useEffect(() => {
         client.animal
-            .search({ page: currentPage })
+            .search({ page: currentPage, limit: 10 })
             .then((response) => setData(response.data))
             .catch((error) => console.log(error));
     }, [currentPage]);
