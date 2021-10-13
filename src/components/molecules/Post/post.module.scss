@@ -4,10 +4,12 @@
     grid-area: a;
     display: grid;
     grid-template-columns: 45% 55%;
+    grid-template-rows: 100%;
     border-top: 0.1px solid $outline;
     border-bottom: 0.1px solid $outline;
-    min-height: 245px;
+    min-height: 280px;
     padding: 1.5rem;
+    width: 100%;
     position: relative;
 
     &:hover {
@@ -15,12 +17,13 @@
     }
 
     @include smallDeviceBreak {
-        min-height: 350px;
+        height: 350px;
     }
 }
 
 .postImageContainer {
     background-size: cover;
+    background-position: center;
     border-radius: $radius;
 }
 
