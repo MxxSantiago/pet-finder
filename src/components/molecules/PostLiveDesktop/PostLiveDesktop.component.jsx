@@ -2,12 +2,12 @@ import React from 'react';
 
 import styles from './post-live-desktop.module.scss';
 
-const PostLiveDesktop = ({ post, charging }) => {
+const PostLiveDesktop = ({ post, loading }) => {
     const { age, name, gender, description, type, status, url } = post;
     const { city, country } = post.contact.address;
     const postImage = post.photos[0] ? post.photos[0].medium : '/BannerBG.png';
 
-    if (charging) {
+    if (loading) {
         return (
             <div className={styles.postLiveContainer}>
                 <div className={styles.postLive}>
