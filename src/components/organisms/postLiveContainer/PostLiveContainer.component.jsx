@@ -1,20 +1,23 @@
 import React from 'react';
 
+import useSingleFetch from '../../../hooks/useSingleFetch';
 import { useWindowSize } from '../../../hooks/useWindowSize';
 
 import PostLiveDesktop from '../../molecules/PostLiveDesktop';
 import PostLiveModal from '../../molecules/postLiveModal';
 
-const PostLiveContainer = ({ data, posts, charging, open, handleClose }) => {
+const PostLiveContainer = ({ id, open, handleClose, posts }) => {
+    const { post, loading } = useSingleFetch(id);
     const [size] = useWindowSize();
 
     if (size <= 885) {
         return (
             <>
-                {data.data && (
+                {post.data && (
                     <PostLiveModal
-                        post={data.data.animal}
+                        post={post.data.animal}
                         isOpen={open}
+                        loading={loading}
                         handleClose={handleClose}
                     />
                 )}
@@ -24,8 +27,8 @@ const PostLiveContainer = ({ data, posts, charging, open, handleClose }) => {
 
     return (
         <>
-            {data.data ? (
-                <PostLiveDesktop post={data.data.animal} charging={charging} />
+            {post.data ? (
+                <PostLiveDesktop post={post.data.animal} loading={loading} />
             ) : (
                 <PostLiveDesktop post={posts[0]} />
             )}
