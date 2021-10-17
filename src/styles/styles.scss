@@ -20,6 +20,10 @@ html {
     letter-spacing: -0.75px;
     line-height: 1.34;
     overflow-x: hidden;
+
+    @include phone {
+        font-size: 13px;
+    }
 }
 
 #App {
