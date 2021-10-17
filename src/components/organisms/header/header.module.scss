@@ -8,7 +8,7 @@
     height: 100px;
     width: 100vw;
 
-    @include smallPhone {
+    @include phone {
         height: 125px;
     }
 }
@@ -31,13 +31,17 @@
             font-size: 1.75rem;
             padding: 0.5rem;
         }
+
+        @include phone {
+            margin-left: auto;
+        }
     }
 
     @include middleDeviceBreak {
         width: 80vw;
     }
 
-    @include smallPhone {
+    @include phone {
         margin-top: 1rem;
         flex-direction: column;
     }

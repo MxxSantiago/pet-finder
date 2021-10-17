@@ -83,7 +83,7 @@
     margin-right: 1rem;
     padding: 0.65rem;
 
-    @include smallPhone {
+    @include phone {
         margin-left: 0;
         margin-right: 0;
     }
