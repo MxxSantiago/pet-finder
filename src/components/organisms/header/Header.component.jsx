@@ -5,13 +5,13 @@ import SearchBar from '../../molecules/SearchBar';
 
 import { header, headerMain } from './header.module.scss';
 
-const Header = () => {
+const Header = ({ setType }) => {
     return (
         <div className={header}>
             <Nav />
             <header className={headerMain}>
                 <h1>Pet-Finder</h1>
-                <SearchBar />
+                <SearchBar setType={setType} />
             </header>
         </div>
     );
