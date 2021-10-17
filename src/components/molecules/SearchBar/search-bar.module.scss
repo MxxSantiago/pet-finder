@@ -1,7 +1,8 @@
 @import '/src/styles/variables.scss';
 
 .searchBar {
-    outline: 1px solid $black;
+    display: inline-flex;
+    outline: 1px solid $outline;
 
     input {
         border: $outline;
