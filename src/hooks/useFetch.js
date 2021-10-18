@@ -1,11 +1,5 @@
-import { Client } from '@petfinder/petfinder-js';
-
 import { useEffect, useState } from 'react';
-
-const client = new Client({
-    apiKey: 'Uw2nyHWo7HuNa91CA030ycgBith6Bsiy85H0ldasaefSLpAstK',
-    secret: '44kOV61L3aNGRmZXIb4F87ZxCb3A7MzJbsGnc0aC',
-});
+import client from '../APIclient';
 
 function useFetch() {
     const [type, setType] = useState('');
